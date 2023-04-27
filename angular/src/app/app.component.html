@@ -1,0 +1,66 @@
+<h1>Hello World!</h1>
+<button (click)="getItems()">Get Items</button>
+<button (click)="clearItems()">Clear Items</button>
+
+
+
+<table class="table">
+  <thead>
+      <tr>
+          <th scope="col"></th>
+          <th scope="col">BarcodesAmount </th>
+          <th scope="col">CategoryId </th>
+          <th scope="col">CheckedOutById </th>
+          <th scope="col">CheckinNotes </th>
+          <th scope="col">CheckoutReasonId </th>
+          <th scope="col">CurrentOrgId </th>
+          <th scope="col">CurrentOrgName </th>
+          <th scope="col">Description </th>
+          <th scope="col">DispositionAuthorizationStatusId </th>
+          <th scope="col">DispositionAuthorizationStatus </th>
+          <th scope="col">CurrentOfficeId </th>
+          <th scope="col">CurrentOfficeName </th>
+          <th scope="col">CustodianId </th>
+          <th scope="col">Custodian </th>
+          <th scope="col">Barcode </th>
+          <th scope="col">CustodyReasonId </th>
+          <th scope="col">CustodyReason </th>
+          <th scope="col">StatusId </th>
+          <th scope="col">Status </th>
+          <th scope="col">RecoveryDate </th>
+
+      </tr>
+  </thead>
+  <tbody>      
+          <tr *ngFor="let product of items">
+              <td>
+                  <button>View</button>
+              </td>
+              <td class="align-middle">{{product.categoryId}}</td>
+              <td class="align-middle">{{product.checkedOutById}}</td>
+              <td class="align-middle">{{product.checkinNotes}}</td>
+              <td class="align-middle">{{product.checkoutReasonId}}</td>
+              <td class="align-middle">{{product.currentOrgId}}</td>
+              <td class="align-middle">{{product.currentOrgName}}</td>
+              <td class="align-middle">{{product.barcodesAmount}}</td>
+              <td class="align-middle">{{product.description}}</td>
+              <td class="align-middle">{{product.dispositionAuthorizationStatusId}}</td>
+              <td class="align-middle">{{product.dispositionAuthorizationStatus}}</td>
+              <td class="align-middle">{{product.currentOfficeId}}</td>
+              <td class="align-middle">{{product.currentOfficeName}}</td>
+              <td class="align-middle">{{product.custodianId}}</td>
+              <td class="align-middle">{{product.custodian}}</td>
+              <td class="align-middle">{{product.barcode}}</td>
+              <td class="align-middle">{{product.custodyReasonId}}</td>
+              <td class="align-middle">{{product.custodyReason}}</td>
+              <td class="align-middle">{{product.statusId}}</td>
+              <td class="align-middle">{{product.status}}</td>
+              <td class="align-middle">{{product.recoveryDate}}</td>
+          </tr>
+  </tbody>
+</table>
+
+
+
+
+<router-outlet></router-outlet>

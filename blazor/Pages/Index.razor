@@ -1,0 +1,130 @@
+﻿@page "/"
+@using System.Text.Json
+@using System.Text.Json.Serialization
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using WebApplication1;
+@inject HttpClient Http
+
+<h1>Hello, world!</h1>
+<button @onclick="GetItems">Get Items</button>
+<button @onclick="ClearItems">Clear</button>
+
+@if (items.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">BarcodesAmount </th>
+                <th scope="col">CategoryId </th>
+                <th scope="col">CheckedOutById </th>
+                <th scope="col">CheckinNotes </th>
+                <th scope="col">CheckoutReasonId </th>
+                <th scope="col">CurrentOrgId </th>
+                <th scope="col">CurrentOrgName </th>
+                <th scope="col">Description </th>
+                <th scope="col">DispositionAuthorizationStatusId </th>
+                <th scope="col">DispositionAuthorizationStatus </th>
+                <th scope="col">CurrentOfficeId </th>
+                <th scope="col">CurrentOfficeName </th>
+                <th scope="col">CustodianId </th>
+                <th scope="col">Custodian </th>
+                <th scope="col">Barcode </th>
+                <th scope="col">CustodyReasonId </th>
+                <th scope="col">CustodyReason </th>
+                <th scope="col">StatusId </th>
+                <th scope="col">Status </th>
+                <th scope="col">RecoveryDate </th>
+            </tr>
+        </thead>
+        <tbody>
+            <Virtualize Items="@items" Context="product" SpacerElement="tr">
+                <tr @key="product.Id">
+                    <td>
+                        <button>View</button>
+                    </td>
+                    <td class="align-middle">@product.BarcodesAmount</td>
+                    <td class="align-middle">@product.CategoryId</td>
+                    <td class="align-middle">@product.CheckedOutById</td>
+                    <td class="align-middle">@product.CheckinNotes</td>
+                    <td class="align-middle">@product.CheckoutReasonId</td>
+                    <td class="align-middle">@product.CurrentOrgId</td>
+                    <td class="align-middle">@product.CurrentOrgName</td>
+                    <td class="align-middle">@product.Description</td>
+                    <td class="align-middle">@product.DispositionAuthorizationStatusId</td>
+                    <td class="align-middle">@product.DispositionAuthorizationStatus</td>
+                    <td class="align-middle">@product.CurrentOfficeId</td>
+                    <td class="align-middle">@product.CurrentOfficeName</td>
+                    <td class="align-middle">@product.CustodianId</td>
+                    <td class="align-middle">@product.Custodian</td>
+                    <td class="align-middle">@product.Barcode</td>
+                    <td class="align-middle">@product.CustodyReasonId</td>
+                    <td class="align-middle">@product.CustodyReason</td>
+                    <td class="align-middle">@product.StatusId</td>
+                    <td class="align-middle">@product.Status</td>
+                    <td class="align-middle">@product.RecoveryDate</td>
+                </tr>
+            </Virtualize>
+@*          DONT EVEN TRY THIS!  
+            @foreach (var product in items)
+            {
+                <tr>
+                    <td>
+                        <button>View</button>
+                    </td>
+                    <td class="align-middle">@product.BarcodesAmount</td>
+                    <td class="align-middle">@product.CategoryId</td>
+                    <td class="align-middle">@product.CheckedOutById</td>
+                    <td class="align-middle">@product.CheckinNotes</td>
+                    <td class="align-middle">@product.CheckoutReasonId</td>
+                    <td class="align-middle">@product.CurrentOrgId</td>
+                    <td class="align-middle">@product.CurrentOrgName</td>
+                    <td class="align-middle">@product.Description</td>
+                    <td class="align-middle">@product.DispositionAuthorizationStatusId</td>
+                    <td class="align-middle">@product.DispositionAuthorizationStatus</td>
+                    <td class="align-middle">@product.CurrentOfficeId</td>
+                    <td class="align-middle">@product.CurrentOfficeName</td>
+                    <td class="align-middle">@product.CustodianId</td>
+                    <td class="align-middle">@product.Custodian</td>
+                    <td class="align-middle">@product.Barcode</td>
+                    <td class="align-middle">@product.CustodyReasonId</td>
+                    <td class="align-middle">@product.CustodyReason</td>
+                    <td class="align-middle">@product.StatusId</td>
+                    <td class="align-middle">@product.Status</td>
+                    <td class="align-middle">@product.RecoveryDate</td>
+                </tr>
+            }
+*@        </tbody>
+    </table>
+}
+else
+{
+    <span>
+        Click to load items...
+    </span>
+}
+
+@code{
+    private List<ItemViewModel> items = new List<ItemViewModel>();
+    public void ClearItems()
+    {
+        items.Clear();
+    }   
+
+    public async Task GetItems()
+    {
+        try
+        {
+            items = await Http.GetFromJsonAsync<List<ItemViewModel>>("api/items");
+            Console.WriteLine($"{items.Count} received");
+            //shouldRender = true;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+        }
+    }
+
+    private bool shouldRender;
+    //protected override bool ShouldRender() => shouldRender;
+}
