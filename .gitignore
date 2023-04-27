@@ -54,6 +54,7 @@ TestResult.xml
 node_modules/
 npm-debug.log
 yarn-error.log
+.angular
 
 # IDEs and editors
 .idea/
