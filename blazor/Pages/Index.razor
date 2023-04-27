@@ -38,31 +38,33 @@
             </tr>
         </thead>
         <tbody>
-            <Virtualize Items="@items" Context="product" SpacerElement="tr">
+            <Virtualize Items="@items" Context="product" SpacerElement="tr" ItemSize="40">
                 <tr @key="product.Id">
                     <td>
-                        <button>View</button>
+                        <div style="height:40px; overflow:hidden">
+                            <button>View</button>
+                        </div>
                     </td>
-                    <td class="align-middle">@product.BarcodesAmount</td>
-                    <td class="align-middle">@product.CategoryId</td>
-                    <td class="align-middle">@product.CheckedOutById</td>
-                    <td class="align-middle">@product.CheckinNotes</td>
-                    <td class="align-middle">@product.CheckoutReasonId</td>
-                    <td class="align-middle">@product.CurrentOrgId</td>
-                    <td class="align-middle">@product.CurrentOrgName</td>
-                    <td class="align-middle">@product.Description</td>
-                    <td class="align-middle">@product.DispositionAuthorizationStatusId</td>
-                    <td class="align-middle">@product.DispositionAuthorizationStatus</td>
-                    <td class="align-middle">@product.CurrentOfficeId</td>
-                    <td class="align-middle">@product.CurrentOfficeName</td>
-                    <td class="align-middle">@product.CustodianId</td>
-                    <td class="align-middle">@product.Custodian</td>
-                    <td class="align-middle">@product.Barcode</td>
-                    <td class="align-middle">@product.CustodyReasonId</td>
-                    <td class="align-middle">@product.CustodyReason</td>
-                    <td class="align-middle">@product.StatusId</td>
-                    <td class="align-middle">@product.Status</td>
-                    <td class="align-middle">@product.RecoveryDate</td>
+                    <td class="align-middle"><div style="height:40px; overflow:hidden">@product.BarcodesAmount </div></td>
+                    <td class="align-middle"><div style="height:40px; overflow:hidden">@product.CategoryId </div></td>
+                    <td class="align-middle"><div style="height:40px; overflow:hidden">@product.CheckedOutById </div></td>
+                    <td class="align-middle"><div style="height:40px; overflow:hidden">@product.CheckinNotes </div></td>
+                    <td class="align-middle"><div style="height:40px; overflow:hidden">@product.CheckoutReasonId </div></td>
+                    <td class="align-middle"><div style="height:40px; overflow:hidden">@product.CurrentOrgId </div></td>
+                    <td class="align-middle"><div style="height:40px; overflow:hidden">@product.CurrentOrgName </div></td>
+                    <td class="align-middle"><div style="height:40px; overflow:hidden">@product.Description </div></td>
+                    <td class="align-middle"><div style="height:40px; overflow:hidden">@product.DispositionAuthorizationStatusId </div></td>
+                    <td class="align-middle"><div style="height:40px; overflow:hidden">@product.DispositionAuthorizationStatus </div></td>
+                    <td class="align-middle"><div style="height:40px; overflow:hidden">@product.CurrentOfficeId </div></td>
+                    <td class="align-middle"><div style="height:40px; overflow:hidden">@product.CurrentOfficeName </div></td>
+                    <td class="align-middle"><div style="height:40px; overflow:hidden">@product.CustodianId </div></td>
+                    <td class="align-middle"><div style="height:40px; overflow:hidden">@product.Custodian </div></td>
+                    <td class="align-middle"><div style="height:40px; overflow:hidden">@product.Barcode </div></td>
+                    <td class="align-middle"><div style="height:40px; overflow:hidden">@product.CustodyReasonId </div></td>
+                    <td class="align-middle"><div style="height:40px; overflow:hidden">@product.CustodyReason </div></td>
+                    <td class="align-middle"><div style="height:40px; overflow:hidden">@product.StatusId </div></td>
+                    <td class="align-middle"><div style="height:40px; overflow:hidden">@product.Status </div></td>
+                    <td class="align-middle"><div style="height:40px; overflow:hidden">@product.RecoveryDate </div></td>
                 </tr>
             </Virtualize>
 @*          DONT EVEN TRY THIS!  

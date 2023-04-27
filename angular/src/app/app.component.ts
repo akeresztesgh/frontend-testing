@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { ItemViewModel } from './itemViewModel';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -13,11 +14,13 @@ export class AppComponent {
   constructor(private http: HttpClient) {
   }
 
-  public getItems() {
-    this.http.get<ItemViewModel[]>('https://localhost:7159/api/items').subscribe(x => {
-      this.items = x;
-      console.log(`got ${this.items.length} items`);
-    });
+  public async getItems() {
+
+    this.items = await lastValueFrom(this.http.get<ItemViewModel[]>('https://localhost:7159/api/items'));
+    // this.http.get<ItemViewModel[]>('https://localhost:7159/api/items').subscribe(x => {
+    //   this.items = x;
+    //   console.log(`got ${this.items.length} items`);
+    // });
   }
   public clearItems() {
     this.items = [];
