@@ -16,6 +16,7 @@ export class AppComponent {
 
   public async getItems() {
 
+    // or firstValueFrom
     this.items = await lastValueFrom(this.http.get<ItemViewModel[]>('https://localhost:7159/api/items'));
     // this.http.get<ItemViewModel[]>('https://localhost:7159/api/items').subscribe(x => {
     //   this.items = x;
